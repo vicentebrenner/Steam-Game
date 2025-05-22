@@ -1,52 +1,25 @@
-public abstract class Jogo {
-    protected String nome;
-    protected double preco;
+package main;
 
-    public Jogo(String nome, double preco) {
-        this.nome = nome;
-        this.preco = preco;
-    }
+import controller.GameController;
+import model.*;
 
-    public abstract double calcularPrecoFinal();
-}
+import java.util.Arrays;
 
-public class JogoIndie extends Jogo {
-    public JogoIndie(String nome, double preco) {
-        super(nome, preco);
-    }
+public class Main {
+    public static void main(String[] args) {
+        GameController controller = new GameController();
 
-    @Override
-    public double calcularPrecoFinal() {
-        return preco * 0.9;
-    }
-}
+        Conquista conquista1 = new Conquista("Derrotar o Dragão");
+        Conquista conquista2 = new Conquista("Explorar a Floresta Proibida");
 
-public class JogoTripleA extends Jogo {
-    public JogoTripleA(String nome, double preco) {
-        super(nome, preco);
-    }
+        Jogo jogo1 = controller.criarJogo("The Witcher 3", Arrays.asList(conquista1, conquista2));
 
-    @Override
-    public double calcularPrecoFinal() {
-        return preco * 0.8;
-    }
-}
+        Usuario usuario = controller.criarUsuario("Vicente");
+        usuario.adicionarJogo(jogo1);
 
-public interface Compravel {
-    double getPreco();
-}
+        controller.atualizarTempoDeJogo(jogo1, 5.0);
+        controller.obterConquista(conquista1);
 
-public class DLC implements Compravel {
-    private String nome;
-    private double preco;
-
-    public DLC(String nome, double preco) {
-        this.nome = nome;
-        this.preco = preco;
-    }
-
-    @Override
-    public double getPreco() {
-        return preco;
+        controller.exibirProgresso(jogo1);
     }
 }
