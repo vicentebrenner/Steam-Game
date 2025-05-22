@@ -6,8 +6,8 @@ import java.util.List;
 
 public class GameController {
 
-    public Usuario criarUsuario(String nome, List<Jogo> jogos) {
-        return new Usuario(nome, jogos);
+    public Usuario criarUsuario(String nome) {
+        return new Usuario(nome);
     }
 
     public Jogo criarJogo(String titulo, List<Conquista> conquistas) {
@@ -31,7 +31,3 @@ public class GameController {
         System.out.println("Tempo de Jogo: " + jogo.getTempoDeJogo() + " horas");
         System.out.println("Percentual de Conclusão: " + jogo.getPercentualConclusao() + "%");
         for (Conquista conquista : jogo.getConquistas()) {
-            System.out.println("- " + conquista.getNome() + (conquista.isObtido() ? " (Obtida)" : " (Não obtida)"));
-        }
-    }
-}
