@@ -41,6 +41,7 @@ public class Jogo {
     }
 
     private double calcularPercentualConclusao() {
+        if (conquistas.isEmpty()) return 0;
         long conquistasObtidas = conquistas.stream().filter(Conquista::isObtido).count();
         return (double) conquistasObtidas / conquistas.size() * 100;
     }
