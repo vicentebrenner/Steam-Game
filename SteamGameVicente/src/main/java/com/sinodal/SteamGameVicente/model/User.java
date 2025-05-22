@@ -1,14 +1,15 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
     private String nome;
     private List<Jogo> jogos;
 
-    public Usuario(String nome, List<Jogo> jogos) {
+    public Usuario(String nome) {
         this.nome = nome;
-        this.jogos = jogos;
+        this.jogos = new ArrayList<>();
     }
 
     public String getNome() {
