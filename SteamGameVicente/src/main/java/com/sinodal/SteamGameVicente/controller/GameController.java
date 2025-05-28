@@ -1,9 +1,12 @@
 package controller;
 
 import model.*;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@RestController
+@RequestMapping("/api")
+@RequiredArgsConstructor
 public class GameController {
 
     public Usuario criarUsuario(String nome) {
@@ -30,4 +33,4 @@ public class GameController {
         System.out.println("Jogo: " + jogo.getTitulo());
         System.out.println("Tempo de Jogo: " + jogo.getTempoDeJogo() + " horas");
         System.out.println("Percentual de Conclusão: " + jogo.getPercentualConclusao() + "%");
-        for (Conquista conquista : jogo.getConquistas()) {
+        for (Conquista conquista : jogo.getConquistas()) };
